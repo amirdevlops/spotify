@@ -1,0 +1,121 @@
+.white{
+    color: white;
+}
+
+.black{
+    color: black ;
+}
+
+.textdeconone{
+    text-decoration: none;
+}
+.flex{
+    display: flex;
+}
+
+.justifycenter{
+    justify-content: center;
+}
+
+.spacebetween{
+    justify-content: space-between;
+}
+.spacearound{
+    justify-content: space-around;
+}
+
+.border{
+    border: 5px solid white;
+}
+
+.width25{
+    width: 25%;
+}
+
+.textcenter{
+    text-align: center;
+}
+
+.fixed{
+    position: fixed;
+}
+
+.margintop{
+    margin-top: 1vw;
+}
+
+.fontwhite{
+color: white;
+}
+
+.borderleft{
+    border-right: 1px solid;
+}
+
+.margin85px{
+    margin: 0 85px;
+}
+
+.rettingsdiv{
+    margin-left: -30px;
+}
+
+
+.width50{
+    width: 50%;
+}
+
+.somthing{
+    margin-top: 10vw;
+}
+
+.overflowhidden{
+    overflow: hidden;
+}
+
+.red{
+    color: red;
+}
+
+.flecCollom{
+    flex-direction: column;
+}
+.center{
+    justify-content: center;
+    align-items: center;
+}
+
+.ubuntu{
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.alingcenter{
+    align-items: center;
+}
+
+.listnone{
+    list-style: none;
+}
+
+.width100{
+    width: 100%;
+}
+
+.block{
+    display: block;
+}
+.none{
+    display: none;
+}
+
+.bgborder{
+    border:  1px solid;
+}
+
+.width33{
+    width: 33%;
+}
+
+#studentsname * {
+margin-left: 10px;
+}
