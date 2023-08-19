@@ -46,7 +46,7 @@ cursor: grab;
 user-select: none;
 }
 
-@media (max-width: 360px) {
+@media (max-width: 560px) {
     .card .image img {
         width: 35vw;
         height: 35vw;
