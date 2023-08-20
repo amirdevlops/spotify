@@ -1,64 +1,42 @@
-// Function to check if the user is on a mobile device
-function isMobileDevice() {
-    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+let ulSlider = document.getElementById("ulSlider");
+let isDragging = false, startX, startScrollLeft;
+let isScrolling = false;
+
+const dragStart = (e) => {
+    isDragging = true;
+    ulSlider.classList.add("dragging");
+
+    startX = e.touches[0].pageX; // Use the first touch event's X position
+    startScrollLeft = ulSlider.scrollLeft;
+
+    isScrolling = true; // Enable scrolling flag
 }
 
-// Choose the appropriate version of the script based on the device type
-if (isMobileDevice()) {
-    // Mobile version of the script
-    let ulSlider = document.getElementById("ulSlider");
-    let isDragging = false, startX, startScrollLeft;
-
-    const dragStart = (e) => {
-        isDragging = true;
-        ulSlider.classList.add("dragging");
-
-        startX = e.touches[0].pageX;
-        startScrollLeft = ulSlider.scrollLeft;
+const dragging = (e) => {
+    if (!isDragging) {
+        return;
     }
 
-    const dragging = (e) => {
-        if (!isDragging) {
-            return;
-        }
-        ulSlider.scrollLeft = startScrollLeft - (e.touches[0].pageX - startX);
+    if (!isScrolling) {
+        return; // Ignore if not scrolling
     }
 
-    const dragStop = () => {
-        isDragging = false;
-        ulSlider.classList.remove("dragging");
-    }
-
-    ulSlider.addEventListener("touchstart", dragStart);
-    ulSlider.addEventListener("touchmove", dragging);
-    ulSlider.addEventListener("touchend", dragStop);
-} else {
-    // Desktop version of the script
-    let ulSlider = document.getElementById("ulSlider");
-    let isDragging = false, startX, startScrollLeft;
-
-    const dragStart = (e) => {
-        isDragging = true;
-        ulSlider.classList.add("dragging");
-
-        startX = e.pageX;
-        startScrollLeft = ulSlider.scrollLeft;
-
-    }
-
-    const dragging = (e) => {
-        if (!isDragging) {
-            return;
-        }
-        ulSlider.scrollLeft = startScrollLeft - (e.pageX - startX);
-    }
-
-    const dragStop = () => {
-        isDragging = false;
-        ulSlider.classList.remove("dragging");
-    }
-
-    ulSlider.addEventListener("mousedown", dragStart);
-    ulSlider.addEventListener("mousemove", dragging);
-    ulSlider.addEventListener("mouseup", dragStop);
+    ulSlider.scrollLeft = startScrollLeft - (e.touches[0].pageX - startX);
 }
+
+const dragStop = () => {
+    isDragging = false;
+    ulSlider.classList.remove("dragging");
+    isScrolling = false; // Disable scrolling flag
+}
+
+ulSlider.addEventListener("touchstart", dragStart);
+ulSlider.addEventListener("touchmove", () => {
+    // Debounce the touchmove event
+    if (!isScrolling) {
+        requestAnimationFrame(() => {
+            dragging(event);
+        });
+    }
+});
+ulSlider.addEventListener("touchend", dragStop);
