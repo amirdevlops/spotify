@@ -1,25 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/home.css">
-    <link rel="stylesheet" href="../css/utility.css">
-    <script src="../javascript/home.js" defer></script>
-    <title>Spotify</title>
-</head>
-<body>
-   
-
-
-
-    <div class="flex">
-        <section class="header-horizontal" id="myDiv">
-
-        </section>
-
-
-
+    <div>
         <section class="section-slider flex center">
             <div class="wrap">
                 <ul class="ul-slider" id="ulSlider">
@@ -68,10 +47,4 @@
                 </ul>
             </div>
         </section>
-
-        
-
-
     </div>
-</body>
-</html>

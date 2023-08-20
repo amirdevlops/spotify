@@ -1,31 +1,31 @@
-*{
+* {
     margin: 0;
     padding: 0;
 
 }
 
-.section-slider{
+.section-slider {
     width: 100%;
     height: 150vh;
     background-color: aquamarine;
     padding: 0 35px;
 }
 
-.wrap{
+.wrap {
     max-width: 1100px;
     width: 100%;
 }
 
-.wrap .ul-slider{
-display: grid;
-grid-auto-flow: column;
-grid-auto-columns: calc((100% / 3 ) - 12px);
-gap: 16px;
-overflow: hidden;
+.wrap .ul-slider {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: calc((100% / 3) - 12px);
+    gap: 16px;
+    overflow: hidden;
 }
 
 .ul-slider .card {
-    
+
     height: 342px;
     background-color: white;
     border-radius: 8px;
@@ -41,12 +41,29 @@ overflow: hidden;
     object-fit: cover;
 }
 
-.ul-slider.dragging .card{
-cursor: grab;
-user-select: none;
+.ul-slider{
+    transition: scroll-left 0.3s ease-in-out;
 }
 
-@media (max-width: 560px) {
+.ul-slider.dragging .card {
+    cursor: grab;
+    user-select: none;
+}
+
+.header-horizontal {
+    width: 250px;
+    height: 100vh;
+    background-color: #3498db;
+    position: relative;
+    transition: width 0.3s ease;
+
+}
+.change-cursor:hover{
+    cursor: pointer;
+
+}
+
+@media (max-width: 360px) {
     .card .image img {
         width: 35vw;
         height: 35vw;
@@ -55,19 +72,18 @@ user-select: none;
     }
 
     .ul-slider .card {
-    
+
         height: 50vw;
         width: 50vw;
     }
 
-    .section-slider{
+    .section-slider {
         height: 35vh;
 
     }
 
-    .wrap .ul-slider{
+    .wrap .ul-slider {
         gap: 25vw;
     }
 
 }
-
